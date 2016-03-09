@@ -12,8 +12,8 @@ function graphQuery(queryString, callback) {
     query: queryString
   }).end(function(err, res) {
     debug(err || res.body);
-    debug(res);
     if (err) {
+      debug(res);
     } else {
       callback(res.body.data);
     }
@@ -25,6 +25,6 @@ graphQuery(`{ hello, listings { id, title } }`, function(data) {
   var i;
   console.log('Listings!');
   for (i = 0; i < listings.length; i += 1) {
-    console.log(`i) ${listings[i].title}: ${listings[i].id}`);
+    console.log(`${i + 1}) ${listings[i].title}: ${listings[i].id}`);
   }
 });
