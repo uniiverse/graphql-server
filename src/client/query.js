@@ -20,7 +20,7 @@ function graphQuery(queryString, callback) {
   });
 }
 
-graphQuery(`{ hello, listings { title } }`, function(data) {
+graphQuery(`{ hello, listings { id, title } }`, function(data) {
   var listings = data.listings;
   var i;
   console.log('Listings!');
