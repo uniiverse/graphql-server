@@ -4,7 +4,6 @@ GraphQL server with Mongoose (MongoDB) and Node.js
 
 For use with Universe's MongoDB as a read-only database.
 
-## Like this? Check out our GraphQL ORM: [graffiti](https://github.com/RisingStack/graffiti)
 
 ## Installation
 
@@ -73,3 +72,8 @@ mutation updateUser($userId: String! $name: String!) {
   }
 }
 ```
+
+## References
+
+* [Writing a basic api with graphql](http://davidandsuzi.com/writing-a-basic-api-with-graphql/)
+* [graphql type system](http://graphql.org/docs/api-reference-type-system/)
