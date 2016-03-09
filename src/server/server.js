@@ -9,13 +9,14 @@ import schema from './schema';
 
 let port = process.env.PORT || 3000;
 let routes = new Router();
+let DATABASE = 'uniiverse_development';
 var app = koa();
 
 // support nested query tring params
 qs(app);
 
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect('mongodb://localhost/graphql');
+  mongoose.connect('mongodb://localhost/' + DATABASE);
 }
 
 routes.get('/data', function* () {
