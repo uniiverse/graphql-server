@@ -7,6 +7,24 @@ import {
 } from 'graphql/type';
 import co from 'co';
 
+import Listing from './listing';
+
+var listingType = new GraphQLObjectType({
+  name: 'Listing',
+  description: 'An event listing',
+  fields: function() {
+    return {
+      id: {
+        type: new GraphQLNonNull(GraphQLString),
+        description: 'The id of the listing.'
+      },
+      title: {
+        type: GraphQLString,
+        description: 'The title of the listing.'
+      }
+    };
+  }
+});
 
       type: GraphQLString,
     },
