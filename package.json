@@ -1,5 +1,5 @@
 {
-  "name": "graphql-server",
+  "name": "universe-graphql-server",
   "version": "1.0.0",
   "description": "GraphQL server with Mongoose (MongoDB) and Node.js",
   "main": "index.js",
