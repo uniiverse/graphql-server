@@ -26,23 +26,26 @@ var listingType = new GraphQLObjectType({
   }
 });
 
+var rootQueryType =  new GraphQLObjectType({
+  name: 'RootQueryType',
+  fields: {
+    hello: {
       type: GraphQLString,
+      resolve: function() {
+        return 'world';
+      }
     },
+    listings: {
+      type: new GraphQLList(listingType),
+      resolve: function() {
+        return Listing.find().limit(10);
+      }
     }
+  }
 });
 
 var schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'RootQueryType',
-    fields: {
-      hello: {
-        type: GraphQLString,
-        resolve: function() {
-          return 'world';
-        }
-      }
-    }
-  })
+  query: rootQueryType
 });
 
 export var getProjection;
