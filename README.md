@@ -4,6 +4,14 @@ GraphQL server with Mongoose (MongoDB) and Node.js
 
 For use with Universe's MongoDB as a read-only database.
 
+Models available:
+
+* Listing
+* TODO: Event
+* TODO: Rate
+* TODO: Capacity
+* TODO: Category
+* TODO: Event Photos / Images
 
 ## Installation
 
@@ -77,3 +85,4 @@ mutation updateUser($userId: String! $name: String!) {
 
 * [Writing a basic api with graphql](http://davidandsuzi.com/writing-a-basic-api-with-graphql/)
 * [graphql type system](http://graphql.org/docs/api-reference-type-system/)
+* [GraphQL resolve method](http://pcarion.com/2015/09/26/graphql-resolve/)
