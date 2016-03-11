@@ -19,10 +19,15 @@ graphQuery(`{ listings { id, title } }`, function(data) {
 
 graphQuery(`{ listings { id, title, slug, hashtag, category_id } }`, function(data) {
   printObjects(data.listings);
-  var id = data.listings[0].id;
-  graphQuery(`{ listing(id: "${id}") { id, title, website, capacity, state } }`, function(data) {
+  // var id = data.listings[0].id;
+  var id = "4f0fc0292078f9038500079b";
+  graphQuery(`{ listing(id: "${id}") { id, title, website, capacity, state }, events(listing_id: "${id}") { id, start_stamp, end_stamp, city_name } }`, function(data) {
     var listing = data.listing;
     console.log(`${listing.id}: ${listing.title}, ${listing.website}, ${listing.capacity}, ${listing.state}`);
+    console.log('=== Events ===');
+    data.events.forEach(function(event) {
+      console.log(`${event.id}: ${event.start_stamp} to ${event.end_stamp} in ${event.city_name}`);
+    });
   });
 });
 

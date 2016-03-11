@@ -66,6 +66,19 @@ var listingType = new GraphQLObjectType({
   }
 });
 
+var eventType = new GraphQLObjectType({
+  name: 'Event',
+  description: 'An event',
+  fields: function() {
+    return {
+      id: makeNonNullGQLString('Event id'),
+      start_stamp: makeNonNullGQLString('Start of the event, timestamp'),
+      end_stamp: makeNonNullGQLString('End of the event, timestamp'),
+      city_name: makeGQLString('Event that the city is in')
+    };
+  }
+});
+
 var rootQueryType =  new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
@@ -85,6 +98,18 @@ var rootQueryType =  new GraphQLObjectType({
       },
       resolve: function(parent, args, ast) {
         return models.Listing.findOne({ _id: args.id });
+      }
+    },
+    events: {
+      type: new GraphQLList(eventType),
+      args: {
+        listing_id: {
+          name: 'listing_id',
+          type: new GraphQLNonNull(GraphQLString)
+        }
+      },
+      resolve: function(parent, args, ast) {
+        return models.Event.find({ listing_id: args.listing_id });
       }
     }
   }

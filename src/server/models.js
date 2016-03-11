@@ -20,8 +20,12 @@ var ListingSchema = new mongoose.Schema({
 }, { collection: 'listings' });
 
 var EventSchema = new mongoose.Schema({
-
-});
+  _id: { type: String },
+  listing_id: { type: String },
+  start_stamp: { type: String },
+  end_stamp: { type: String },
+  city_name: { type: String }
+}, { collection: 'events' });
 
 var RateSchema = new mongoose.Schema({
 
@@ -34,7 +38,6 @@ var CapacitySchema = new mongoose.Schema({
 var CategorySchema = new mongoose.Schema({
 
 });
-
 
 export default {
   Listing: mongoose.model('Listing', ListingSchema),
